@@ -10,10 +10,15 @@
     let user = '';
 
     const pagination = document.querySelector('#pagination');
+    const paginationFiltered = document.querySelector('#paginationFiltered');
     const btnPrevious = document.querySelector('.btnPrevious');
     const btnNext = document.querySelector('.btnNext');
     const pageShowing = document.querySelector('.pageNumber');
+    const btnPreviousFiltered = document.querySelector('.btnPreviousFiltered');
+    const btnNextFiltered = document.querySelector('.btnNextFiltered');
+    const pageShowingFiltered = document.querySelector('.pageNumberFiltered');
     let pageNumber = 1;
+    let pageNumberFiltered = 1;
 
     const btnPesquisar = document.querySelector('.btnSearch');
     const btnFiltrar = document.querySelector('.btnFilter');
@@ -47,7 +52,7 @@
 
     async function getReposFiltered(reposName) {
         const reposResponse = await fetch(
-            `${url}/search/repositories?q=${reposName}+in:name+user:${user}&per_page=${count}&sort=${sort}&client_id=${client_id}&client_secret=${client_secret}&page=${pageNumber}`
+            `${url}/search/repositories?q=${reposName}+in:name+user:${user}&per_page=${count}&sort=${sort}&client_id=${client_id}&client_secret=${client_secret}&page=${pageNumberFiltered}`
         );
 
         const reposFiltered = await reposResponse.json();
@@ -79,7 +84,7 @@
     }
 
     function showRepos(repos) {
-        console.log(repos);
+        console.log(`ShowRepos: ${repos}`);
         let output = '';
 
         repos.forEach(repo => {
@@ -177,7 +182,7 @@
     }
 
     function showReposFiltered(repos) {
-        console.log(repos);
+        console.log(`ShowReposFiltered: ${repos}`);
         let output = '';
 
         repos.items.forEach(repo => {
@@ -272,18 +277,6 @@
             `;
         });
 
-        output += `
-        <div id="pagination">
-            <nav class="cardsPagination">
-                <a href="#" class="paginationControl"><</a>
-                <ul class="pageNumbering">
-                    <li class="pageNumber pageNumberActive"><a>1</a></li>
-                </ul>
-                <a href="#" class="paginationControl">></a>
-            </nav>
-        </div>
-        `;
-
         document.querySelector('#repos').innerHTML = output;
     }
 
@@ -313,7 +306,7 @@
         user = search.value;
         function pesquisaUsuario() {
             getUser(user).then(res => {
-                console.log(`****** btnPesquisar: "${res.profile.login}" ******\n`);
+                console.log(`****** User btnPesquisar: "${res.profile.login}" ******\n`);
                 showProfile(res.profile);
                 showRepos(res.repos);
             });
@@ -323,17 +316,22 @@
         search.value = '';
         search.focus();
 
+        pageNumberFiltered = 1;
+        pageNumber = 1;
+
+        pageShowing.innerHTML = pageNumber;
         pagination.classList.remove("hidden");
+        paginationFiltered.classList.add('hidden');
 
     }
 
 
-    btnFiltrar.onclick = function filtrar() {
+    btnFiltrar.onclick = function () {
         const filter = search.value;
         const Usuario = pegaUsuario(user);
 
         function filtraRepos() {
-            console.log(`****** btnFiltrar: "${Usuario}" ******\n`);
+            console.log(`****** User btnFiltrar: "${Usuario}" ******\n`);
             clearRepos();
 
             getReposFiltered(filter).then(res => {
@@ -341,17 +339,19 @@
             });
         };
         filtraRepos();
+        pageNumberFiltered = 1;
+        pageNumber = 1;
 
-        search.value = '';
-        search.focus();
-
+        pageShowingFiltered.innerHTML = pageNumberFiltered;
+        pagination.classList.add('hidden');
+        paginationFiltered.classList.remove('hidden');
     }
 
     btnNext.onclick = function() {
         pageNumber++;
         function pesquisaUsuario() {
             getUser(user).then(res => {
-                console.log(`****** btnPesquisar: "${res.profile.login}" ******\n`);
+                console.log(`****** User btnNext: "${res.profile.login}" ******\n`);
                 showProfile(res.profile);
                 showRepos(res.repos);
             });
@@ -364,7 +364,7 @@
         pageNumber--;
         function pesquisaUsuario() {
             getUser(user).then(res => {
-                console.log(`****** btnPesquisar: "${res.profile.login}" ******\n`);
+                console.log(`****** User btnPrevious: "${res.profile.login}" ******\n`);
                 showProfile(res.profile);
                 showRepos(res.repos);
             });
@@ -373,5 +373,42 @@
         pageShowing.innerHTML = pageNumber;
     }
 
+    btnNextFiltered.onclick = function(){
+        pageNumberFiltered++;
+        const filter = search.value;
+        const Usuario = pegaUsuario(user);
+
+        function filtraRepos() {
+            console.log(`****** User btnNextFiltered: "${Usuario}" ******\n`);
+            clearRepos();
+
+            getReposFiltered(filter).then(res => {
+                showReposFiltered(res.reposFiltered);
+            });
+        };
+        filtraRepos();
+
+        pageShowingFiltered.innerHTML = pageNumberFiltered;
+    }
+
+    btnPreviousFiltered.onclick = function(){
+        pageNumberFiltered--;
+        const filter = search.value;
+        const Usuario = pegaUsuario(user);
+
+        function filtraRepos() {
+            console.log(`****** User btnPreviousFiltered: "${Usuario}" ******\n`);
+            clearRepos();
+
+            getReposFiltered(filter).then(res => {
+                showReposFiltered(res.reposFiltered);
+            });
+        };
+        filtraRepos();
+
+        pageShowingFiltered.innerHTML = pageNumberFiltered;
+    }
+
+    
 
 })();
