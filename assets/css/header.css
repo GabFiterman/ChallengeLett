@@ -1,0 +1,59 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.logoLett{
+    height: 6rem;
+}
+
+.mainTitle{
+    margin-left: 2.5rem;
+    color: var(--mainText);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.projectDeveloper{
+    color: var(--mainText);
+    flex-basis: 100%;
+    font-weight: 200;
+    margin-left: 4rem;
+    margin-top: -2rem;
+    text-align: center;
+}
+
+.developerName{
+    color: var(--main);
+    text-decoration: underline;
+}
+
+.developerName:hover{
+    color: var(--mainHover);
+    font-weight: bold;
+}
+
+@media(max-width: 769px) {
+    .header{
+        flex-direction: column;
+    }
+
+    .logoLett{
+        height: 4rem;
+    }
+
+    .mainTitle{
+        margin: 0;
+        font-size: 2rem;
+        margin-top: 0.5rem;
+    }
+
+    .projectDeveloper{
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+
+}

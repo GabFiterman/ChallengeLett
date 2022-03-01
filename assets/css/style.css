@@ -1,0 +1,39 @@
+:root{
+    --main: #00E676;
+    --mainHover: #46EA9B;
+    --mainActive: #1F6643;
+
+    --secondary: #0B0A0D;
+    --secondaryHover: #4C4559;
+    --secondaryActive: #3A2A59;
+
+    --tertiary: #C4C4C4;
+    --tertiaryHover: #D1D1D1;
+    --tertiaryActive: #454545;
+
+    --mainText: #EAEAEA;
+    --background: #302E37;
+}
+
+html{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url('../img/Background.webp');
+    background-position: center;
+}
+
+.btn{
+    color: var(--secondary);
+    padding: 0.5rem 1rem;
+    margin-left: 1.5rem;
+    border-radius: 5rem;
+    box-shadow: 0.25rem 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover{
+    cursor: pointer;
+    filter: brightness(125%);
+    box-shadow: 0.45rem 0.3rem 0.5rem rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,237 @@
+.mainResult{
+    display: flex;
+    margin: 10vh;
+    color: var(--mainText);
+    align-items: flex-start;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePhoto{
+    border-radius: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.profileName{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1.2rem;
+}
+
+.profileInfos{
+    margin-top: 1.5rem;
+}
+
+.profileInfo:nth-child(n+2):nth-child(-n+3){
+    margin-top: 1.6rem;
+}
+
+.profileInfoQuantity{
+    margin-left: 1.2rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.35rem;
+    background-color: var(--main);
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.profileInfo:nth-child(n+2):nth-child(-n+3) .profileInfoQuantity{
+    color: var(--mainText);
+    background-color: var(--secondary);
+}
+
+.btnProfile{
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 0;
+    background-color: var(--main);
+}
+
+/********************** CARDS ****************************/
+
+.cardsRepos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card{
+    display: flex;
+    background-color: var(--secondary);
+    align-items: center;
+    height: fit-content;
+    padding: .5rem 1.5rem;
+    margin-left: 5rem;
+    border: 0.15rem solid var(--main);
+    border-radius: 1rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+/* .card:hover{
+    cursor: pointer;
+    background-color: var(--secondaryActive);
+    border: 0.2rem solid var(--main);
+} */
+
+.cardName{
+    color: var(--main);
+    font-weight: 600;
+}
+
+.cardName:hover{
+    color: var(--mainHover);
+    font-weight: 800;
+}
+
+.cardStatisticsGroup{
+    display: flex;
+    padding: 1rem;
+}
+
+.cardStatistic{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    font-size: 0.8rem;
+}
+
+.cardIcon{
+    height: 1.5rem;
+    margin-right: 0.25rem;
+}
+
+.cardStar{
+    color: var(--main);
+}
+
+/* .starName{
+
+}
+
+.starCount{
+
+}
+
+.cardWatch{
+
+}
+
+.watchName{
+
+}
+
+.watchCount{
+
+}
+
+.cardFork{
+
+}
+
+.forkName{
+
+}
+
+.forkCount{
+
+} */
+
+.cardsPagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+}
+
+.pageNumbering{
+    display: flex;;
+    margin: 0 1rem;
+}
+
+.pageNumber:not(:first-child){
+    margin-left: 1rem;
+}
+
+.pageNumber:hover, .paginationControl:hover{
+    cursor: pointer;
+    color: var(--mainHover);
+}
+
+.pageNumberActive{
+    color: var(--main);
+    font-weight: bold;
+}
+
+@media(max-width: 769px){
+    .mainResult{
+        flex-direction: column;
+        margin: 0;
+        margin-top: 5vh;
+        width: 100%;
+    }
+
+    .profile{
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .profilePhoto{
+        width: 35%;
+        margin-left: 10vw;
+    }
+
+    .profileInformation{
+        margin-left: 10vw;
+    }
+
+    .profileName{
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+
+    .profileInfos{
+        font-size: 0.8rem;
+    }
+
+    .btnProfile{
+        font-size: 0.8rem;
+        font-weight: 500;
+        width: 80%;
+        margin-left: 0;
+    }
+
+    /************* CARDS ****************/
+
+    .card{
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin: auto;
+        margin-top: 4rem;
+        padding: 1rem;
+        width: 90%;
+    }
+
+   .cardStatistic{
+        margin-left: 0;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+
+    .cardIcon{
+        height: 1rem;
+        margin-right: 0.35rem;
+    }
+
+    .cardsPagination{
+        margin-left: 0;
+    }
+}

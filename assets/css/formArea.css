@@ -1,0 +1,73 @@
+.formArea{
+    color: var(--mainText);
+    margin-top: 10vh;
+}
+
+.mainSubtitle{
+    font-size: 1.65rem;
+    text-align: center;
+}
+
+.form{
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+}
+
+.inputSearch{
+    flex-grow: 3;
+    color: var(--secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+    background-color: #EAEAEA;
+}
+
+.inputSearch:focus{
+    background-color: #ffffff;
+}
+
+
+.btnSearch{
+    background-color: var(--main);
+}
+
+.btnFilter{
+    background-color: var(--tertiary);
+}
+
+@media(max-width: 769px){
+    .formArea{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mainSubtitle{
+        font-size: 1rem;
+    }
+
+    .form{
+        font-size: 0.8rem;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .inputSearch{
+        width: 100%;
+    }
+
+    .btn{
+        margin: 0;
+        width: 30%;
+        margin-top: 1rem;
+    }
+
+    .btnSearch{
+        flex-grow: 2;
+        margin-right: 1rem;
+    }
+}
