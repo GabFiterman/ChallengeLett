@@ -38,6 +38,7 @@
     background-color: var(--tertiary);
 }
 
+
 @media(max-width: 769px){
     .formArea{
         display: flex;

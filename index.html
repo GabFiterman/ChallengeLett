@@ -36,7 +36,7 @@
         <div class="form">
             <input class="inputSearch" type="text" placeholder="Pesquisar..." required />
             <button class="btn btnSearch">Pesquisar</button>
-            <button class="btn btnFilter" id="btnFilter">Filtrar</button>
+            <button class="btn btnFilter">Filtrar</button>
         </div>
     </section>
 
@@ -61,7 +61,8 @@
         </aside> -->
 
         <section class="cardsRepos">
-
+            <!-- <button class="btn btnPrevious hidden ">ANTERIOR</button>
+            <button class="btn btnNext hidden ">PRÓXIMA</button> -->
             <div id="repos"></div>
 
             <!-- <div class="card">
@@ -325,20 +326,17 @@
                 </div>
 
             </div> -->
-            
-            
 
-            <!-- <div id="pagination">
+            <div id="pagination" class="hidden">
                 <nav class="cardsPagination">
-                    <a href="#" class="paginationControl"><</a>
                     <ul class="pageNumbering">
-                        <li class="pageNumber pageNumberActive"><a>1</a></li>
-                        <li class="pageNumber"><a>2</a></li>
-                        <li class="pageNumber"><a>3</a></li>
+                        <li><button class="paginationControl btnPrevious btn" ><</button></li>
+                        <li class="pageNumber pageNumberActive">1</li>
+                        <li><button class="paginationControl btnNext btn">></button></li>
                     </ul>
-                    <a href="#" class="paginationControl">></a>
+                
                 </nav>
-            </div> -->
+            </div>
 
         </section>
     </main>

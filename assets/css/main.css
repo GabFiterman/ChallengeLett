@@ -1,6 +1,6 @@
 .mainResult{
     display: flex;
-    margin: 10vh;
+    margin: 5vh 10vh;
     color: var(--mainText);
     align-items: flex-start;
 }
@@ -60,6 +60,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 10vh;
 }
 
 .card{
@@ -72,7 +73,7 @@
     border: 0.15rem solid var(--main);
     border-radius: 1rem;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 2vh;
 }
 
 /* .card:hover{
@@ -154,9 +155,11 @@
 .pageNumbering{
     display: flex;;
     margin: 0 1rem;
+    margin-bottom: 5vh;
+    align-items: center;
 }
 
-.pageNumber:not(:first-child){
+.pageNumber{
     margin-left: 1rem;
 }
 
@@ -168,6 +171,17 @@
 .pageNumberActive{
     color: var(--main);
     font-weight: bold;
+}
+
+.btnPrevious, .btnNext {
+    background-color: var(--mainText);
+    padding: 0 1rem;
+    margin: 0;;
+    width: auto;
+}
+
+.btnNext{
+    margin-left: 1rem;
 }
 
 @media(max-width: 769px){
@@ -186,7 +200,6 @@
 
     .profilePhoto{
         width: 35%;
-        margin-left: 10vw;
     }
 
     .profileInformation{
@@ -210,12 +223,14 @@
     }
 
     /************* CARDS ****************/
-
+    .cardsRepos{
+        margin-top: 0vh;
+    }
     .card{
         flex-wrap: wrap;
         margin-left: 0;
         margin: auto;
-        margin-top: 4rem;
+        margin-top: 5vh;
         padding: 1rem;
         width: 90%;
     }

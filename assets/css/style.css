@@ -37,3 +37,7 @@ body{
     filter: brightness(125%);
     box-shadow: 0.45rem 0.3rem 0.5rem rgba(0, 0, 0, 0.6);
 }
+
+.hidden{
+    visibility: hidden;
+}
