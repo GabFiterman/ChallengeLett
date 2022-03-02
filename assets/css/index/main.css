@@ -1,12 +1,10 @@
 .mainResult{
-    display: flex;
     margin: 5vh 10vh;
     color: var(--mainText);
     align-items: flex-start;
 }
 
 .profile{
-    display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
@@ -57,14 +55,12 @@
 /********************** CARDS ****************************/
 
 .cardsRepos{
-    display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 10vh;
 }
 
 .card{
-    display: flex;
     background-color: var(--secondary);
     align-items: center;
     height: fit-content;
@@ -87,12 +83,10 @@
 }
 
 .cardStatisticsGroup{
-    display: flex;
     padding: 1rem;
 }
 
 .cardStatistic{
-    display: flex;
     align-items: center;
     margin-left: 2rem;
     font-size: 0.8rem;
@@ -108,46 +102,29 @@
 }
 
 /* .starName{
-
 }
-
 .starCount{
-
 }
-
 .cardWatch{
-
 }
-
 .watchName{
-
 }
-
 .watchCount{
-
 }
-
 .cardFork{
-
 }
-
 .forkName{
-
 }
-
 .forkCount{
-
 } */
 
 .cardsPagination{
-    display: flex;
     justify-content: center;
     margin-top: 1.5rem;
     margin-left: 5rem;
 }
 
 .pageNumbering{
-    display: flex;;
     margin: 0 1rem;
     margin-bottom: 5vh;
     align-items: center;

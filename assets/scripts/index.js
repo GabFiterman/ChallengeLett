@@ -64,18 +64,15 @@
 
     function showProfile(user) {
         profile.innerHTML = /*<div id="profile">*/`
-        <aside class="profile">
+        <aside class="profile flex">
             <img class="profilePhoto" src="${user.avatar_url}" alt="Foto de Perfil" />
-
             <div class="profileInformation">
                 <h4 class="profileName">${user.name}</h4>
-
             <ul class="profileInfos">
                 <li class="profileInfo">Repositórios: <span class="profileInfoQuantity">${user.public_repos}</span></li>
                 <li class="profileInfo">Seguidores: <span class="profileInfoQuantity">${user.followers}</span></li>
                 <li class="profileInfo">Seguindo: <span class="profileInfoQuantity">${user.following}</span></li>
             </ul>
-
             <button class="btn btnProfile"><a href="${user.html_url}" target="_blank">Ver Perfil</a></button>
             </div>
             
@@ -89,12 +86,10 @@
 
         repos.forEach(repo => {
             output += /*<div id="repos">*/ `
-            <div class="card">
+            <div class="card flex">
                 <a class="cardName" href="${repo.html_url}" target="_blank">${repo.name}</a>
-
-                <div class="cardStatisticsGroup">
-
-                    <span class="cardStatistic cardStar">
+                <div class="cardStatisticsGroup flex">
+                    <span class="cardStatistic cardStar flex">
                         
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
@@ -116,8 +111,7 @@
                         </svg>
                         <p class="starName">Star: <strong class="starCount">${repo.stargazers_count}</strong></p>
                     </span>
-
-                    <span class="cardStatistic cardWatch">
+                    <span class="cardStatistic cardWatch flex">
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -145,8 +139,7 @@
                         </svg>
                         <p class="watchName">Watch: <strong class="watchCount">${repo.watchers_count}</strong></p>
                     </span>
-
-                    <span class="cardStatistic cardFork">
+                    <span class="cardStatistic cardFork flex">
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -172,9 +165,7 @@
                         </svg>
                         <p class="forkName">Fork: <strong class="forkCount">${repo.forks_count}</strong></p>
                     </span>
-
                 </div>
-
             </div>
             `;
         });
@@ -187,12 +178,12 @@
 
         repos.items.forEach(repo => {
             output += `
-            <div class="card">
+            <div class="card flex">
                 <a class="cardName" href="${repo.html_url}" target="_blank">${repo.name}</a>
         
-                <div class="cardStatisticsGroup">
+                <div class="cardStatisticsGroup flex">
         
-                    <span class="cardStatistic cardStar">
+                    <span class="cardStatistic cardStar flex">
                         
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
@@ -215,7 +206,7 @@
                         <p class="starName">Star: <strong class="starCount">${repo.stargazers_count}</strong></p>
                     </span>
         
-                    <span class="cardStatistic cardWatch">
+                    <span class="cardStatistic cardWatch flex">
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -244,7 +235,7 @@
                         <p class="watchName">Watch: <strong class="watchCount">${repo.watchers_count}</strong></p>
                     </span>
         
-                    <span class="cardStatistic cardFork">
+                    <span class="cardStatistic cardFork flex">
                         <svg class="cardIcon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                             viewBox="0 0 172 172" style=" fill:#000000;">
                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -282,17 +273,15 @@
 
     function clearRepos() {
         document.querySelector('#repos').innerHTML = `
-        <div class="card">
+        <div class="card flex">
                 <a></a>
                 <div>
                     <span>
                         <p></p>
                     </span>
-
                     <span>
                         <p></p>
                     </span>
-
                     <span>
                         <p></p></p>
                     </span>

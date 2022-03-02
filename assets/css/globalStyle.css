@@ -24,6 +24,10 @@ body{
     background-position: center;
 }
 
+strong{
+    font-weight: bold;
+}
+
 .btn{
     color: var(--secondary);
     padding: 0.5rem 1rem;
@@ -41,3 +45,8 @@ body{
 .hidden{
     visibility: hidden;
 }
+
+.flex{
+    display: flex;
+}
+

@@ -1,0 +1,37 @@
+.why{
+    width: 60vw;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+.whyTitle{
+    color: var(--main);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.whyTitle em{
+    text-transform: uppercase;
+}
+
+.whyText{
+    color: var(--mainText);
+    margin-top: 5vh;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+
+@media(max-width: 769px){
+    .why{
+        width: 80vw;
+    }
+
+    .whyTitle{
+        font-size: 1.65rem;
+    }
+    .whyText{
+        text-align: left;
+    }
+}
