@@ -46,6 +46,10 @@ strong{
     visibility: hidden;
 }
 
+.displayNone{
+    display: none;
+}
+
 .flex{
     display: flex;
 }

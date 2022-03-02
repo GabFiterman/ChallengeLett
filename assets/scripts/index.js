@@ -1,11 +1,12 @@
 (function () {
     const search = document.querySelector('.inputSearch');
     const profile = document.querySelector('#profile');
-
+    const divNotFound = document.querySelector('#notFound');
+    const mainResult = document.querySelector('.mainResult');
     const url = 'https://api.github.com';
     const client_id = 'a758c30ae6bd78739ead';
     const client_secret = 'e662535f645fa548b9ade32174b5d876e4f50c27';
-    const count = 2;
+    const count = 50;
     const sort = "created: asc";
     let user = '';
 
@@ -63,21 +64,26 @@
 
 
     function showProfile(user) {
-        profile.innerHTML = /*<div id="profile">*/`
-        <aside class="profile flex">
-            <img class="profilePhoto" src="${user.avatar_url}" alt="Foto de Perfil" />
-            <div class="profileInformation">
-                <h4 class="profileName">${user.name}</h4>
-            <ul class="profileInfos">
-                <li class="profileInfo">Repositórios: <span class="profileInfoQuantity">${user.public_repos}</span></li>
-                <li class="profileInfo">Seguidores: <span class="profileInfoQuantity">${user.followers}</span></li>
-                <li class="profileInfo">Seguindo: <span class="profileInfoQuantity">${user.following}</span></li>
-            </ul>
-            <button class="btn btnProfile"><a href="${user.html_url}" target="_blank">Ver Perfil</a></button>
-            </div>
-            
-        </aside>
-        `;
+        if (typeof user.login === undefined) {
+            showError404();
+        } else {
+            profile.innerHTML = /*<div id="profile">*/`
+                <aside class="profile flex">
+                    <img class="profilePhoto" src="${user.avatar_url}" alt="Foto de Perfil" />
+                    <div class="profileInformation">
+                        <h4 class="profileName">${user.name}</h4>
+                    <ul class="profileInfos">
+                        <li class="profileInfo">Repositórios: <span class="profileInfoQuantity">${user.public_repos}</span></li>
+                        <li class="profileInfo">Seguidores: <span class="profileInfoQuantity">${user.followers}</span></li>
+                        <li class="profileInfo">Seguindo: <span class="profileInfoQuantity">${user.following}</span></li>
+                    </ul>
+                    <button class="btn btnProfile"><a href="${user.html_url}" target="_blank">Ver Perfil</a></button>
+                    </div>
+                    
+                </aside>
+            `;
+        }
+
     }
 
     function showRepos(repos) {
@@ -290,14 +296,52 @@
         `;
     }
 
+    function showError404() {
+        console.log(`****** User showError404(): "${user}" ******\n`);
+        notFound.innerHTML = `
+        <div class="notFound">
+            <h1 class="notFoundTitle">Todo mundo erra...</h1>
+            <div class="notFoundBox flex">
+                <img class="notFoundImg" src="./assets/img/Error404.png" alt="404 Not Found">
+                <div class="notFoundInfo">
+                    <p class="notFoundText">
+                        Não encontramos nenhum usuário com o nome "${user}",
+                        por favor verifique a ortografia e tente novamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
 
     btnPesquisar.onclick = function () {
         user = search.value;
+
         function pesquisaUsuario() {
             getUser(user).then(res => {
                 console.log(`****** User btnPesquisar: "${res.profile.login}" ******\n`);
-                showProfile(res.profile);
-                showRepos(res.repos);
+
+                try {
+                    profile.classList.remove('hidden');
+                    showProfile(res.profile);
+                    showRepos(res.repos);
+                    pageShowing.innerHTML = pageNumber;
+
+                    pagination.classList.remove('displayNone');
+                    mainResult.classList.add('flex');
+                    mainResult.classList.remove('displayNone');
+                    divNotFound.classList.add('displayNone');
+                    
+                } catch {
+                    divNotFound.classList.remove('displayNone');
+
+                    mainResult.classList.remove('flex');
+                    mainResult.classList.add('displayNone');
+
+                    showError404();
+                }
+
             });
         };
         pesquisaUsuario();
@@ -307,11 +351,7 @@
 
         pageNumberFiltered = 1;
         pageNumber = 1;
-
-        pageShowing.innerHTML = pageNumber;
-        pagination.classList.remove("hidden");
-        paginationFiltered.classList.add('hidden');
-
+        pageShowingFiltered.innerHTML = pageNumberFiltered;
     }
 
 
@@ -332,11 +372,11 @@
         pageNumber = 1;
 
         pageShowingFiltered.innerHTML = pageNumberFiltered;
-        pagination.classList.add('hidden');
-        paginationFiltered.classList.remove('hidden');
+        pagination.classList.add('displayNone');
+        paginationFiltered.classList.remove('displayNone');
     }
 
-    btnNext.onclick = function() {
+    btnNext.onclick = function () {
         pageNumber++;
         function pesquisaUsuario() {
             getUser(user).then(res => {
@@ -347,10 +387,14 @@
         };
         pesquisaUsuario();
         pageShowing.innerHTML = pageNumber;
+        window.scrollTo(0,0);
     }
 
-    btnPrevious.onclick = function previousPage(){
-        pageNumber--;
+    btnPrevious.onclick = function previousPage() {
+        if(pageNumber >= 2){
+            pageNumber--;
+        }
+        
         function pesquisaUsuario() {
             getUser(user).then(res => {
                 console.log(`****** User btnPrevious: "${res.profile.login}" ******\n`);
@@ -360,9 +404,10 @@
         };
         pesquisaUsuario();
         pageShowing.innerHTML = pageNumber;
+        window.scrollTo(0,0);
     }
 
-    btnNextFiltered.onclick = function(){
+    btnNextFiltered.onclick = function () {
         pageNumberFiltered++;
         const filter = search.value;
         const Usuario = pegaUsuario(user);
@@ -376,12 +421,14 @@
             });
         };
         filtraRepos();
-
         pageShowingFiltered.innerHTML = pageNumberFiltered;
+        window.scrollTo(0,0);
     }
 
-    btnPreviousFiltered.onclick = function(){
-        pageNumberFiltered--;
+    btnPreviousFiltered.onclick = function () {
+        if(pageNumberFiltered >= 2){
+            pageNumberFiltered--;
+        }
         const filter = search.value;
         const Usuario = pegaUsuario(user);
 
@@ -394,10 +441,8 @@
             });
         };
         filtraRepos();
-
         pageShowingFiltered.innerHTML = pageNumberFiltered;
+        window.scrollTo(0,0);
     }
-
-    
 
 })();

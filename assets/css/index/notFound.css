@@ -1,0 +1,33 @@
+.notFound{
+    width: 75vw;
+    margin: auto;
+}
+
+.notFoundTitle{
+    font-size: 2rem;
+    color: var(--main);
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10vh 
+}
+
+.notFoundBox{
+    margin-top: 5vh;
+    align-items: center;
+}
+
+.notFoundImg{
+    width: 25rem;
+}
+
+.notFoundInfo{
+    margin: 0 2rem;
+}
+
+.notFoundText{
+    color: var(--mainText);
+    margin-top: 5vh;
+    text-align: start;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
