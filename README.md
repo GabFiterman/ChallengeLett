@@ -7,7 +7,6 @@
 </p>
 
 <img src="./assets/img/ImgSistema.png" alt="Imagem Sistema"/>
-![Imagem do sistema](.\assets\img\ImgSistema.png)
 
 ## Descrição do projeto
 O projeto é uma página web que consiga pesquisar usuários no GitHub e retornar seus repositórios, que também consiga filtrar os repositórios de dado usuário.
