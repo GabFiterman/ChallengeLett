@@ -1,6 +1,7 @@
 .notFound{
     width: 75vw;
     margin: auto;
+    margin-bottom: 10vh;
 }
 
 .notFoundTitle{
@@ -17,7 +18,7 @@
 }
 
 .notFoundImg{
-    width: 25rem;
+    width: 30vw;
 }
 
 .notFoundInfo{
@@ -30,4 +31,28 @@
     text-align: start;
     font-size: 1.6rem;
     line-height: 1.2;
+}
+
+
+@media(max-width: 769px){
+    .notFound{
+        width: 80vw;
+    }
+
+    .notFoundBox{
+        flex-direction: column;
+    }
+
+    .notFoundImg{
+        width: 60vw;
+    }
+
+    .notFoundInfo{
+        margin: 0;
+    }
+    
+    .notFoundText{
+        text-align: center;
+        font-size: 1.2rem;
+    }
 }

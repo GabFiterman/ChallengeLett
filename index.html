@@ -33,24 +33,27 @@
 
     <section class="formArea">
         <h3 class="mainSubtitle">Digite um nome para encontrar usuários e repositórios</h3>
-
         <div class="form flex">
             <input class="inputSearch" type="text" placeholder="Pesquisar..." required />
             <button class="btn btnSearch">Pesquisar</button>
-            <button class="btn btnFilter">Filtrar</button>
+            <button class="btn btnFilter hidden">Filtrar</button>
         </div>
     </section>
 
     <div id="notFound"></div>
 
-
     <main class="mainResult flex">
+        
+        <!-- Div que irá renderizar o perfil de usuário pesquisado -->
         <div id="profile" class="mainResult flex"></div>
 
+        <!-- Section destinada a exibição dos repositórios -->
         <section class="cardsRepos flex">
             
+            <!-- Div que estará recebendo o laço de exibição dos cards -->
             <div id="repos"></div>
             
+            <!-- Paginação de repositórios que está sem exibição até que seja pesquisado um repositório -->
             <div id="pagination" class="displayNone">
                 <nav class="cardsPagination flex">
                     <ul class="pageNumbering flex">
@@ -62,6 +65,7 @@
                 </nav>
             </div>
 
+            <!-- Paginação de repositórios fistrados que está sem exibição até que seja pesquisado um repositório -->
             <div id="paginationFiltered" class="displayNone">
                 <nav class="cardsPagination flex">
                     <ul class="pageNumbering flex">
@@ -72,11 +76,8 @@
                 
                 </nav>
             </div>
-
         </section>
     </main>
-
-
 
     <script type="text/javascript" src="./assets/scripts/index.js"></script>
 </body>
