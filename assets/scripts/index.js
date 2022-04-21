@@ -35,7 +35,7 @@
     //Variávies para o consumo da API
     const url = 'https://api.github.com';
     const client_id = 'a758c30ae6bd78739ead';
-    const client_secret = 'e662535f645fa548b9ade32174b5d876e4f50c27';
+    const client_secret = '{{FAVOR ME APAGAR NO SETTINGS DO GITHUB}}';
     const count = 50;
     const sort = "created: asc";
     let user = '';
