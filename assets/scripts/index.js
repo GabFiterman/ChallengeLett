@@ -34,8 +34,6 @@
 
     //Variávies para o consumo da API
     const url = 'https://api.github.com';
-    const client_id = 'a758c30ae6bd78739ead';
-    const client_secret = '{{FAVOR ME APAGAR NO SETTINGS DO GITHUB}}';
     const count = 50;
     const sort = "created: asc";
     let user = '';
@@ -59,12 +57,12 @@
 
         // Primeiro busca o usuário e aguarda a reposta da URL
         const profileResponse = await fetch(
-            `${url}/users/${user}?client_id=${client_id}&client_secret=${client_secret}`
+            `${url}/users/${user}`
         );
 
         // Em seguida busca seus repositórios e também aguarda sua resposta
         const reposResponse = await fetch(
-            `${url}/users/${user}/repos?per_page=${count}&sort=${sort}&client_id=${client_id}&client_secret=${client_secret}&page=${pageNumber}`
+            `${url}/users/${user}/repos?per_page=${count}&sort=${sort}&page=${pageNumber}`
         );
 
         // Variáveis de armazenamento dos JSON de reposta
@@ -164,7 +162,7 @@
      */
     async function getReposFiltered(reposName) {
         const reposResponse = await fetch(
-            `${url}/search/repositories?q=${reposName}+in:name+user:${user}&per_page=${count}&sort=${sort}&client_id=${client_id}&client_secret=${client_secret}&page=${pageNumberFiltered}`
+            `${url}/search/repositories?q=${reposName}+in:name+user:${user}&per_page=${count}&sort=${sort}&page=${pageNumberFiltered}`
         );
 
         const reposFiltered = await reposResponse.json();

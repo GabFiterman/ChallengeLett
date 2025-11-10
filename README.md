@@ -30,6 +30,16 @@ Já o filtro de repositórios não exige o termo inteiro. Ex.:
 
 ``` input: alura //retorna todos os repositórios que contenham "alura" em algum lugar em seu nome ```
 
+## Com executar o projeto localmente
+1. Clone este repositório:
+```BASH
+git clone git@github.com:GabFiterman/ChallengeLett.git
+```
+
+2. Na workspace do projeto, execute-o com [LiveServer](https://github.com/ritwickdey/vscode-live-server-plus-plus);
+    - Ou simplesmente execute o arquivo index.html com algum browser;
+
+
 ## A execução do projeto
 A execução do projeto foi simples, com bastante leitura da API bem documentada e algumas pesquisas em pouco tempo já estava com os retornos esperados, então foi necessário fazer o planejamento da interface, o qual pode ser acessado no Figma, as versões para <a href="https://www.figma.com/file/SwpCV4nAH2i3Pn7iO0LEpA/LettChalange?node-id=0%3A1" target="_blank">Desktop</a> e <a href="https://www.figma.com/file/SwpCV4nAH2i3Pn7iO0LEpA/LettChalange?node-id=6%3A687" target="_blank">Mobile</a>.
 
