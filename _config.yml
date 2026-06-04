@@ -1,7 +1,0 @@
-# Jekyll configuration to exclude large binary and unnecessary files
-exclude:
-  - assets/img/Background.psd
-  - package-lock.json
-  - GEMINI.md
-  - LICENSE
-  - README.md
