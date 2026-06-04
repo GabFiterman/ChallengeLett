@@ -1,14 +1,80 @@
-.formArea{
+.formArea {
     color: var(--mainText);
     margin-top: 10vh;
 }
 
-.mainSubtitle{
+.mainSubtitle {
     font-size: 1.65rem;
     text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.form{
+.bulbContainer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bulbIcon {
+    cursor: pointer;
+    margin-right: 0.5rem;
+    display: inline-block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.bulbIcon:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px #00E676);
+}
+
+.instructionsBalloon {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(11, 10, 13, 0.95);
+    border: 2px solid var(--main);
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    width: 450px;
+    max-width: 90vw;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--mainText);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    z-index: 200;
+    cursor: pointer;
+}
+
+.instructionsBalloon::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: var(--main);
+}
+
+.closeBalloonBtn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: var(--mainText);
+    cursor: pointer;
+}
+
+.closeBalloonBtn:hover {
+    color: var(--main);
+}
+
+.form {
     margin: auto;
     margin-top: 5vh;
     justify-content: center;
@@ -16,58 +82,129 @@
     max-width: 75%;
 }
 
-.inputSearch{
+.inputContainer {
+    position: relative;
     flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputSearch {
+    width: 100%;
     color: var(--secondary);
     padding: 0.5rem 1rem;
     border-radius: 5rem;
     background-color: #EAEAEA;
+    border: none;
+    box-sizing: border-box;
 }
 
-.inputSearch:focus{
+.inputSearch:focus {
     background-color: #ffffff;
+    outline: none;
 }
 
+.autocompleteDropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    border: 1px solid var(--main);
+    border-radius: 0.75rem;
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
 
-.btnSearch{
+.autocompleteItem {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--mainText);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.autocompleteItem.activeSuggestion {
+    background-color: var(--secondaryHover);
+    color: var(--main);
+    font-weight: bold;
+}
+
+.autocompleteItem:last-child {
+    border-bottom: none;
+}
+
+.autocompleteItem:hover {
+    background-color: var(--secondaryHover);
+    color: var(--main);
+}
+
+.autocompleteAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    border: 1px solid var(--main);
+}
+
+.autocompleteLogin {
+    font-weight: 500;
+}
+
+.btnSearch {
     background-color: var(--main);
 }
 
-.btnFilter{
+.btnFilter {
     background-color: var(--tertiary);
 }
 
 
-@media(max-width: 769px){
-    .formArea{
+@media(max-width: 769px) {
+    .formArea {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .mainSubtitle{
-        font-size: 1rem;
+    .mainSubtitle {
+        font-size: 1.2rem;
+        padding: 0 1rem;
     }
 
-    .form{
+    .instructionsBox {
+        max-width: 90%;
+        font-size: 0.8rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .form {
         font-size: 0.8rem;
         flex-flow: row wrap;
         justify-content: space-around;
         width: 100%;
+        padding: 0 1rem;
     }
 
-    .inputSearch{
+    .inputContainer {
         width: 100%;
     }
 
-    .btn{
+    .inputSearch {
+        width: 100%;
+    }
+
+    .btn {
         margin: 0;
-        width: 30%;
+        width: 45%;
         margin-top: 1rem;
     }
 
-    .btnSearch{
+    .btnSearch {
         flex-grow: 2;
-        margin-right: 1rem;
     }
 }

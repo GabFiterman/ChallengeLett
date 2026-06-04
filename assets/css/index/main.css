@@ -1,37 +1,37 @@
-.mainResult{
+.mainResult {
     margin: 5vh 10vh;
     color: var(--mainText);
     align-items: flex-start;
 }
 
-.profile{
+.profile {
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.profilePhoto{
+.profilePhoto {
     border-radius: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.profileName{
+.profileName {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 1.2rem;
 }
 
-.profileInfos{
+.profileInfos {
     margin-top: 1.5rem;
 }
 
-.profileInfo:nth-child(n+2):nth-child(-n+3){
+.profileInfo:nth-child(n+2):nth-child(-n+3) {
     margin-top: 1.6rem;
 }
 
-.profileInfoQuantity{
+.profileInfoQuantity {
     margin-left: 1.2rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.35rem;
@@ -40,191 +40,359 @@
     font-weight: bold;
 }
 
-.profileInfo:nth-child(n+2):nth-child(-n+3) .profileInfoQuantity{
+.profileInfo:nth-child(n+2):nth-child(-n+3) .profileInfoQuantity {
     color: var(--mainText);
     background-color: var(--secondary);
 }
 
-.btnProfile{
+.btnProfile {
     width: 100%;
     margin-top: 2rem;
     margin-left: 0;
     background-color: var(--main);
 }
 
-/********************** CARDS ****************************/
-
-.cardsRepos{
+.cardsRepos {
     flex-direction: column;
     width: 100%;
     margin-top: 10vh;
 }
 
-.card{
-    background-color: var(--secondary);
-    align-items: center;
-    height: fit-content;
-    padding: .5rem 1.5rem;
+.dynamicFilterArea {
     margin-left: 5rem;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.inputRepoFilter {
+    width: 100%;
+    color: var(--secondary);
+    padding: 0.75rem 1.25rem;
+    border-radius: 5rem;
+    background-color: #EAEAEA;
+    border: 2px solid var(--main);
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.inputRepoFilter:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.4);
+    outline: none;
+}
+
+.reposGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-left: 5rem;
+    margin-top: 2vh;
+    width: calc(100% - 5rem);
+}
+
+.card {
+    background-color: var(--secondary);
+    align-items: flex-start;
+    height: fit-content;
+    padding: 1.25rem 1.5rem;
     border: 0.15rem solid var(--main);
     border-radius: 1rem;
+    margin-left: 0;
+    margin-top: 0;
+    flex-direction: column;
     justify-content: space-between;
-    margin-top: 2vh;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.cardName{
+.card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 230, 118, 0.15);
+    border-color: var(--mainHover);
+}
+
+.cardName {
     color: var(--main);
     font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    word-break: break-all;
 }
 
-.cardName:hover{
+.card:hover .cardName {
     color: var(--mainHover);
     font-weight: 800;
 }
 
-.cardStatisticsGroup{
-    padding: 1rem;
+.cardStatisticsGroup {
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.cardStatistic{
+.cardStatistic {
     align-items: center;
-    margin-left: 2rem;
-    font-size: 0.8rem;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.cardIcon{
+.cardStatistic:hover {
+    transform: translateX(4px);
+    filter: brightness(1.3) drop-shadow(0 0 4px var(--main));
+}
+
+.cardIcon {
     height: 1.2rem;
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
 }
 
-.cardStar{
+.cardStar {
     color: var(--main);
 }
 
-/* .starName{
+.usersSearchSection {
+    margin: 5vh 10vh;
+    color: var(--mainText);
 }
-.starCount{
-}
-.cardWatch{
-}
-.watchName{
-}
-.watchCount{
-}
-.cardFork{
-}
-.forkName{
-}
-.forkCount{
-} */
 
-.cardsPagination{
+.usersResultTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--main);
+    text-align: center;
+}
+
+.usersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5vh;
+}
+
+.userLargeCard {
+    background-color: var(--secondary);
+    border: 2px solid var(--main);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.userLargeCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 230, 118, 0.2);
+}
+
+.userLargeAvatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--main);
+    margin-bottom: 1.25rem;
+    object-fit: cover;
+}
+
+.userLargeLogin {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--mainText);
+    margin-bottom: 1.5rem;
+}
+
+.btnViewRepos {
+    background-color: var(--main);
+    color: var(--secondary);
+    font-weight: bold;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5rem;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btnViewRepos:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 6px 12px rgba(0, 230, 118, 0.3);
+}
+
+.cardsPagination {
     justify-content: center;
     margin-top: 1.5rem;
     margin-left: 5rem;
 }
 
-.pageNumbering{
+.pageNumbering {
     margin: 0 1rem;
     margin-bottom: 5vh;
     align-items: center;
 }
 
-.pageNumber, .pageNumberFiltered{
+.pageNumberInfo,
+.pageNumberInfoFiltered,
+.pageNumberInfoUsers {
     margin-left: 1rem;
+    color: var(--mainText);
+    font-size: 0.95rem;
 }
 
-.pageNumber:hover, .paginationControl:hover{
-    cursor: pointer;
-    color: var(--mainHover);
-}
-
-.pageNumberActive{
+.pageNumber,
+.pageNumberFiltered,
+.pageNumberUsers {
     color: var(--main);
     font-weight: bold;
 }
 
-.btnPrevious, .btnNext{
+.pageCountText,
+.pageCountTextFiltered,
+.pageCountTextUsers {
+    opacity: 0.75;
+}
+
+.paginationControl {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.paginationControl:hover:not(:disabled) {
+    color: var(--mainHover);
+    filter: brightness(120%);
+}
+
+.paginationControl:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pageNumberActive {
+    color: var(--main);
+    font-weight: bold;
+}
+
+.btnPrevious,
+.btnNext {
     background-color: var(--mainText);
     padding: 0 1rem;
     margin: 0;
     width: auto;
 }
 
-.btnPreviousFiltered,.btnNextFiltered {
+.btnPreviousFiltered,
+.btnNextFiltered {
     background-color: var(--main);
     padding: 0 1rem;
     margin: 0;
     width: auto;
 }
 
-.btnNext, .btnNextFiltered{
+.btnPreviousUsers,
+.btnNextUsers {
+    background-color: var(--main);
+    color: var(--secondary);
+    padding: 0 1rem;
+    margin: 0;
+    width: auto;
+}
+
+.btnNext,
+.btnNextFiltered,
+.btnNextUsers {
     margin-left: 1rem;
 }
 
-@media(max-width: 769px){
-    .mainResult{
+@media(max-width: 769px) {
+    .mainResult {
         flex-direction: column;
         margin: 0;
         margin-top: 5vh;
         width: 100%;
     }
 
-    .profile{
+    .profile {
         width: 100%;
         flex-direction: row;
         align-items: flex-start;
     }
 
-    .profilePhoto{
+    .profilePhoto {
         width: 35%;
     }
 
-    .profileInformation{
+    .profileInformation {
         margin-left: 10vw;
     }
 
-    .profileName{
+    .profileName {
         font-size: 1.5rem;
         margin-top: 0;
     }
 
-    .profileInfos{
+    .profileInfos {
         font-size: 0.8rem;
     }
 
-    .btnProfile{
+    .btnProfile {
         font-size: 0.8rem;
         font-weight: 500;
         width: 80%;
         margin-left: 0;
     }
 
+    .usersSearchSection {
+        margin: 5vh 2vh;
+    }
+
     /************* CARDS ****************/
-    .cardsRepos{
+    .cardsRepos {
         margin-top: 0vh;
     }
-    .card{
+
+    .dynamicFilterArea {
+        margin-left: 0;
+        margin: auto;
+        width: 90%;
+        margin-top: 3vh;
+    }
+
+    .reposGrid {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .card {
         flex-wrap: wrap;
         margin-left: 0;
         margin: auto;
-        margin-top: 5vh;
-        padding: 1rem;
-        width: 90%;
+        margin-top: 3vh;
+        padding: 1.25rem;
+        width: 100%;
     }
 
-   .cardStatistic{
+    .cardStatistic {
         margin-left: 0;
-        justify-content: space-between;
-        padding: 0 0.5rem;
+        justify-content: flex-start;
+        padding: 0;
     }
 
-    .cardIcon{
+    .cardIcon {
         height: 1rem;
         margin-right: 0.35rem;
     }
 
-    .cardsPagination{
+    .cardsPagination {
         margin-left: 0;
     }
 }

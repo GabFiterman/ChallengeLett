@@ -28,13 +28,30 @@
     <header class="header flex">
         <img class="logoLett" src="./assets/img/LogoLettWhite.webp" alt="Logo Lett" />
         <h1 class="mainTitle">LETT Challenge</h1>
-        <h5 class="projectDeveloper">Developed by: <a class="developerName" href="./about.html" target="_blank">Gabriel Fiterman</a></h5>
+        <h5 class="projectDeveloper">Developed by: <a class="developerName" href="./about.html" target="_blank">Gabriel
+                Fiterman</a></h5>
     </header>
 
     <section class="formArea">
-        <h3 class="mainSubtitle">Digite um nome para encontrar usuários e repositórios</h3>
+        <h3 class="mainSubtitle">
+            <span class="bulbContainer">
+                <span class="bulbIcon" id="bulbIcon">💡</span>
+                <div id="instructionsBalloon" class="instructionsBalloon displayNone">
+                    <span class="closeBalloonBtn">&times;</span>
+                    <p>💡 <strong>Como usar:</strong> Digite o nome de um usuário no campo abaixo e clique em
+                        <strong>Pesquisar</strong> ou pressione <strong>Enter</strong>. Uma vez carregado o perfil, use
+                        o campo de filtro que aparecerá acima dos repositórios para filtrar instantaneamente por nome.
+                    </p>
+                </div>
+            </span>
+            Digite um nome para encontrar usuários e repositórios
+        </h3>
+
         <div class="form flex">
-            <input class="inputSearch" type="text" placeholder="Pesquisar..." required />
+            <div class="inputContainer">
+                <input class="inputSearch" type="text" placeholder="Pesquisar..." required />
+                <div id="autocompleteDropdown" class="autocompleteDropdown displayNone"></div>
+            </div>
             <button class="btn btnSearch">Pesquisar</button>
             <button class="btn btnFilter hidden">Filtrar</button>
         </div>
@@ -42,38 +59,61 @@
 
     <div id="notFound"></div>
 
+    <section id="usersSearchSection" class="usersSearchSection displayNone">
+        <h3 class="usersResultTitle">Usuários Encontrados</h3>
+        <div id="usersGrid" class="usersGrid"></div>
+        <div id="paginationUsers" class="displayNone">
+            <nav class="cardsPagination flex">
+                <ul class="pageNumbering flex">
+                    <li><button class="paginationControl btnPreviousUsers btn">
+                            &lt; </button>
+                    </li>
+                    <li class="pageNumberInfoUsers"><span class="pageNumberUsers pageNumberActive">1</span> <span
+                            class="pageCountTextUsers">de 1</span></li>
+                    <li><button class="paginationControl btnNextUsers btn">></button></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
     <main class="mainResult flex">
-        
-        <!-- Div que irá renderizar o perfil de usuário pesquisado -->
+
         <div id="profile" class="mainResult flex"></div>
 
-        <!-- Section destinada a exibição dos repositórios -->
         <section class="cardsRepos flex">
-            
-            <!-- Div que estará recebendo o laço de exibição dos cards -->
-            <div id="repos"></div>
-            
-            <!-- Paginação de repositórios que está sem exibição até que seja pesquisado um repositório -->
+
+            <div id="dynamicFilterArea" class="dynamicFilterArea displayNone">
+                <input class="inputRepoFilter" type="text" placeholder="Filtrar repositórios por nome..." />
+            </div>
+
+            <div id="repos" class="reposGrid"></div>
+
             <div id="pagination" class="displayNone">
                 <nav class="cardsPagination flex">
                     <ul class="pageNumbering flex">
-                        <li><button class="paginationControl btnPrevious btn" ><</button></li>
-                        <li class="pageNumber pageNumberActive">1</li>
+                        <li><button class="paginationControl btnPrevious btn">
+                                &lt; </button>
+                        </li>
+                        <li class="pageNumberInfo"><span class="pageNumber pageNumberActive">1</span> <span
+                                class="pageCountText">de 1</span></li>
                         <li><button class="paginationControl btnNext btn">></button></li>
                     </ul>
-                
+
                 </nav>
             </div>
 
-            <!-- Paginação de repositórios fistrados que está sem exibição até que seja pesquisado um repositório -->
             <div id="paginationFiltered" class="displayNone">
                 <nav class="cardsPagination flex">
                     <ul class="pageNumbering flex">
-                        <li><button class="paginationControl btn btnPreviousFiltered" ><</button></li>
-                        <li class="pageNumberFiltered pageNumberActive">1</li>
+                        <li><button class="paginationControl btn btnPreviousFiltered">
+                                &lt; </button>
+                        </li>
+                        <li class="pageNumberInfoFiltered"><span class="pageNumberFiltered pageNumberActive">1</span>
+                            <span class="pageCountTextFiltered">de 1</span>
+                        </li>
                         <li><button class="paginationControl btn btnNextFiltered">></button></li>
                     </ul>
-                
+
                 </nav>
             </div>
         </section>
