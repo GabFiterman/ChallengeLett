@@ -381,10 +381,25 @@
         width: 100%;
     }
 
+    .cardName {
+        width: 100%;
+        margin-bottom: 0.6rem;
+    }
+
+    .cardStatisticsGroup {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem 1rem;
+        align-items: center;
+        width: 100%;
+    }
+
     .cardStatistic {
         margin-left: 0;
+        margin-top: 0;
         justify-content: flex-start;
         padding: 0;
+        flex-shrink: 0;
     }
 
     .cardIcon {

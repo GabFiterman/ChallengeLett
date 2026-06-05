@@ -51,6 +51,20 @@
     cursor: pointer;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .instructionsBalloon {
+        left: 0;
+        right: auto;
+        transform: none;
+        top: 130%;
+        width: 90vw;
+        max-width: 90vw;
+        min-width: unset;
+        margin: 0;
+    }
+}
+
 .instructionsBalloon::before {
     content: '';
     position: absolute;
